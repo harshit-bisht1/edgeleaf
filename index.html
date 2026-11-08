@@ -50,8 +50,9 @@
                 Download for Mac
               </a>
               <a class="pill quiet" data-dl="win" href="https://github.com/harshit-bisht1/edgeleaf/releases/latest">Windows</a>
+              <a class="pill quiet" data-dl="android" href="https://github.com/harshit-bisht1/edgeleaf/releases/latest">Android</a>
             </div>
-            <p class="meta"><span data-version>Free</span> · macOS &amp; Windows · EPUB, PDF &amp; TXT · No account</p>
+            <p class="meta"><span data-version>Free</span> · macOS, Windows &amp; Android · EPUB, PDF &amp; TXT · No account</p>
           </div>
 
           <div class="stage" aria-hidden="true">
@@ -166,6 +167,11 @@
               <p>From then on it opens like any other app, and lives in your menu bar.</p>
             </div>
             <div class="install-card">
+              <h3>On Android</h3>
+              <p>Open the download. The first time, Android asks whether your browser may install apps: tap <b>Settings</b>, switch on <b>Allow from this source</b>, go back and tap <b>Install</b>. If Play Protect calls it an unrecognised app, tap <b>More details → Install anyway</b>.</p>
+              <p>Updates install the same way, over the top, keeping your books.</p>
+            </div>
+            <div class="install-card">
               <h3>On Windows</h3>
               <p>Run the installer. If Windows shows “Windows protected your PC”, click <b>More info</b>, then <b>Run anyway</b>.</p>
               <p>Edgeleaf lives in the system tray (it may be under the <b>^</b> arrow). Its icon turns to an outline while it’s tucked away.</p>
@@ -214,6 +220,15 @@
       }
       const mac = document.querySelector('[data-dl="mac"]');
       const win = document.querySelector('[data-dl="win"]');
+      const android = document.querySelector('[data-dl="android"]');
+      // On an Android phone, Android leads.
+      if (/Android/i.test(navigator.userAgent)) {
+        mac.classList.add("quiet");
+        mac.lastChild.textContent = " Mac";
+        android.classList.remove("quiet");
+        android.textContent = "Download for Android";
+        android.parentNode.prepend(android);
+      }
       if (/Windows/i.test(navigator.userAgent)) {
         mac.classList.add("quiet");
         mac.lastChild.textContent = " Mac";
@@ -228,6 +243,7 @@
           const find = (re) => release.assets.find((a) => re.test(a.name))?.browser_download_url;
           mac.href = find(/universal\.dmg$/) ?? find(/\.dmg$/) ?? mac.href;
           win.href = find(/-setup\.exe$/) ?? find(/\.msi$/) ?? win.href;
+          android.href = find(/\.apk$/) ?? android.href;
           document.querySelector("[data-version]").textContent = `Free · ${release.tag_name}`;
         })
         .catch(() => {});
