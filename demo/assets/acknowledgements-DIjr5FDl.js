@@ -1,0 +1,23 @@
+import{i as e,o as t,t as n}from"./about-BCko2Dv1.js";import{mt as r}from"./storage-C4mnJPpe.js";import{o as i,s as a}from"./dom-DVPvvUYx.js";import{n as o}from"./icons-QamHF50I.js";import{n as s}from"./sheet-Cay4ePyD.js";var c=[{name:`Tauri`,role:`The desktop app shell`,licence:`MIT / Apache-2.0`,href:`https://tauri.app`},{name:`tauri-nspanel`,role:`The floating panel on macOS`,licence:`MIT / Apache-2.0`,href:`https://github.com/ahkohd/tauri-nspanel`},{name:`pdf.js`,role:`Reading PDFs`,licence:`Apache-2.0`,href:`https://mozilla.github.io/pdf.js/`},{name:`JSZip`,role:`Opening EPUB files`,licence:`MIT`,href:`https://stuk.github.io/jszip/`},{name:`Readability`,role:`Taking a chapter out of a web page`,licence:`Apache-2.0`,href:`https://github.com/mozilla/readability`},{name:`ureq`,role:`Fetching web pages, syncing`,licence:`MIT / Apache-2.0`,href:`https://github.com/algesten/ureq`},{name:`pako`,role:`Decompression`,licence:`MIT / Zlib`,href:`https://github.com/nodeca/pako`},{name:`Fraunces`,role:`Display type`,licence:`SIL OFL 1.1`,href:`https://github.com/undercasetype/Fraunces`},{name:`Literata`,role:`Reading type`,licence:`SIL OFL 1.1`,href:`https://github.com/googlefonts/literata`},{name:`Newsreader`,role:`Reading type`,licence:`SIL OFL 1.1`,href:`https://github.com/productiontype/Newsreader`},{name:`Courier Prime, Cormorant Garamond, EB Garamond, Oswald, Old Standard TT, Shippori Mincho`,role:`The editions’ type`,licence:`SIL OFL 1.1`,href:`https://fontsource.org`},{name:`Instrument Sans`,role:`Interface type`,licence:`SIL OFL 1.1`,href:`https://github.com/Instrument/instrument-sans`},{name:`Liberation Sans`,role:`Stand-in font for some PDFs`,licence:`GPL-2.0 with font exception`,href:`https://github.com/liberationfonts/liberation-fonts`},{name:`PDFium, OpenJPEG, qcms, Adobe CMaps`,role:`PDF images, colour and character maps`,licence:`BSD / MIT`,href:`https://github.com/mozilla/pdf.js`},{name:`Freesound recordists: Garuda1982, visionear, bdvictor, esh9419, Defelozedd94, morosopher`,role:`The ambient recordings (rain, fire, wind, sea, night, library)`,licence:`CC0`,href:`https://freesound.org`},{name:`Wiktionary`,role:`Definitions, when the Mac dictionary has none`,licence:`CC BY-SA 4.0`,href:`https://en.wiktionary.org`}];function l(){let l=i(`<div class="nb ack">
+    <header class="bar nb-bar">
+      <div class="brand-mark">${o}<span>Edge<b>leaf</b> ${a(t)}</span></div>
+      <div class="spacer"></div>
+      <button class="icon-btn" data-act="close" aria-label="Close">✕</button>
+    </header>
+    <div class="nb-scroll"><div class="nb-inner">
+      <div>
+        <div class="eyebrow">Acknowledgements</div>
+        <h2 class="ack-title">Built on generous work.</h2>
+        <p class="nb-lede">Edgeleaf stands on these open-source projects and open data. Thank you to everyone who made them.</p>
+      </div>
+      <p class="ack-own"><b>Edgeleaf itself is © 2026 ${a(n)}. All rights reserved.</b> It’s free to download
+        and use, but not open source: please don’t sell, redistribute, modify or reverse-engineer it.
+        <button data-href="${a(e)}">Read the terms</button>. The licences on this page belong to the projects below.</p>
+      <ul class="ack-list">${c.map(e=>`<li><button data-href="${a(e.href)}">${a(e.name)}</button><span>${a(e.role)}</span><em>${a(e.licence)}</em></li>`).join(``)}</ul>
+      <p class="ack-note">…and about 250 smaller Rust libraries, listed below with their licences. Five of them are
+        under the Mozilla Public License 2.0, and Liberation Sans is under the GPL with a font exception. They’re used
+        unmodified, and the notices below link to their source code.</p>
+      <div><button class="pill-btn quiet" data-act="full">Show these projects’ licence texts</button></div>
+      <pre class="ack-full" hidden></pre>
+    </div></div>
+  </div>`),u=s(l,{label:`Acknowledgements`});l.addEventListener(`click`,async e=>{let t=e.target,n=t.closest(`[data-href]`)?.dataset.href;if(n)return void r.openExternal(n);let i=t.closest(`[data-act]`)?.dataset.act;if(i===`close`)u.close();else if(i===`full`){let e=l.querySelector(`.ack-full`);t.closest(`div`).remove(),e.hidden=!1,e.textContent=`Loading…`;try{let t=await fetch(`./THIRD_PARTY_NOTICES.txt`);if(!t.ok)throw Error(String(t.status));e.textContent=await t.text(),e.scrollIntoView({block:`nearest`,behavior:`smooth`})}catch{e.textContent=`The full notices are generated when the app is built (scripts/notices.mjs).`}}})}export{l as t};

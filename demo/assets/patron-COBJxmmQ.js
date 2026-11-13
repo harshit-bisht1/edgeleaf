@@ -1,0 +1,21 @@
+import{a as e,n as t}from"./about-BCko2Dv1.js";import{t as n}from"./ambient-h-nAZEgs.js";import{g as r,mt as i}from"./storage-C4mnJPpe.js";import{a,c as o,i as s,l as c,n as l,o as u,t as d}from"./patron-DB4-81p1.js";import{l as f,o as p,s as m}from"./dom-DVPvvUYx.js";import{n as h,t as g}from"./icons-QamHF50I.js";import{a as _}from"./settings-D2WE5Z1i.js";import{n as v}from"./sheet-Cay4ePyD.js";var y=g.coffee;function b(g){let b=p(`<div class="card patron-card">
+    <div class="card-top"><div class="card-eyebrow">Patron</div><span class="spacer"></span><button type="button" class="icon-btn" data-close aria-label="Close">✕</button></div>
+    <div class="patron-body"></div>
+  </div>`),x=b.querySelector(`.patron-body`),S=v(b,{variant:`dialog`,label:`Patron`});b.querySelector(`[data-close]`).addEventListener(`click`,()=>S.close());let C=_.filter(e=>e.patron).map(e=>`<span class="plate-swatch"><i style="background:${e.bg};color:${e.ink}">Aa</i>${m(e.label)}</span>`).join(``),w=n.filter(e=>e.patron).map(e=>e.label).join(` · `),T=()=>{let n=r().settings.patron,s=`<div class="bookplate">
+      <div class="plate-ex">Ex Libris</div>
+      <span class="plate-mark">${h}</span>
+      <h2>${n?`Kept by a patron`:`Become a patron of Edgeleaf`}</h2>
+      <p>${n?`Thank you. This copy of Edgeleaf has been a patron’s since ${new Date(n.since).toLocaleDateString(void 0,{day:`numeric`,month:`long`,year:`numeric`})}.`:c?`Edgeleaf stays free, every feature of it. Tip what you like, once or now and then, and its finer editions and sounds open:`:`Edgeleaf stays free, every feature of it. Patrons keep it going, and open its finer editions and sounds:`}</p>
+      <div class="plate-editions">${C}</div>
+      <div class="plate-sounds">${m(w)}</div>
+    </div>`;n?(x.innerHTML=`${s}<div class="details-actions"><span class="spacer"></span><button type="button" class="pill-btn" data-done>Done</button></div>`,x.querySelector(`[data-done]`).addEventListener(`click`,()=>S.close())):(x.innerHTML=`${g?`<p class="patron-why">${m(g)}</p>`:``}${s}
+      ${u?`<div class="patron-prices"><p class="patron-note">Fetching prices…</p></div><button type="button" class="select-link" data-restore>Restore a purchase</button>`:``}
+      ${c?`
+        ${e?`<button type="button" class="pill-btn patron-go" data-tip>${y}Tip any amount on Ko-fi</button>`:``}
+        ${t?`<button type="button" class="select-link" data-patreon>or become a member on Patreon</button>`:``}
+        <form class="patron-code">
+          <label for="patron-code">Your patron code</label>
+          <div><input id="patron-code" class="web-url" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="EL-XXXX-XXXX" data-own-escape />
+          <button type="submit" class="pill-btn">Unlock</button></div>
+          <p class="patron-note">It’s in Ko-fi’s thank-you message after you tip (and in Patreon’s welcome message).</p>
+        </form>`:``}`,x.querySelector(`[data-patreon]`)?.addEventListener(`click`,()=>void i.openExternal(t)),x.querySelector(`[data-tip]`)?.addEventListener(`click`,()=>void i.openExternal(e)),x.querySelector(`form`)?.addEventListener(`submit`,async e=>{e.preventDefault();let t=x.querySelector(`#patron-code`),n=await a(t.value);if(n)return f(n);f(`Welcome, patron. Everything’s open.`),T()}),x.querySelector(`[data-restore]`)?.addEventListener(`click`,async()=>{f(`Asking ${o.store}…`),await l(!0)?(f(`Welcome back, patron.`),T()):f(`No Patron purchase on this ${o.account}.`)}),u&&E())},E=async()=>{let e=x.querySelector(`.patron-prices`);if(!e)return;let t=await s().catch(()=>[]);t.length?(e.innerHTML=`<p class="patron-note">Pay what you like, once. Each opens the same things.</p><div class="patron-tiers">${t.map(e=>`<button type="button" class="pill-btn" data-buy="${m(e.id)}"><b>${m(e.name)}</b><span>${m(e.price)}</span></button>`).join(``)}</div>`,e.querySelectorAll(`[data-buy]`).forEach(e=>e.addEventListener(`click`,async()=>{let t=await d(e.dataset.buy);t===`bought`?(f(`Welcome, patron. Everything’s open.`),T()):t===`pending`?f(`Waiting for approval. Patron opens when it’s through.`):t===`failed`&&f(`The purchase didn’t go through.`)}))):e.innerHTML=`<p class="patron-note">${o.store[0].toUpperCase()+o.store.slice(1)} isn’t answering just now. Try again in a little while.</p>`};T()}export{b as openPatron};
