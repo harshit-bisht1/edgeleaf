@@ -8,8 +8,8 @@ Edgeleaf is a free desktop reader for Mac and Windows. It stays tucked away at t
 screen until you want it. Pull it out for a page, tuck it away, and pick up exactly where you
 left off.
 
-**[Download Edgeleaf](https://harshit-bisht1.github.io/edgeleaf)** ·
-[Try it in your browser](https://harshit-bisht1.github.io/edgeleaf/#try) ·
+**[Download Edgeleaf](https://edgeleaf.pages.dev)** ·
+[Try it in your browser](https://edgeleaf.pages.dev/#try) ·
 [All releases](https://github.com/harshit-bisht1/edgeleaf/releases)
 
 ## How it works
