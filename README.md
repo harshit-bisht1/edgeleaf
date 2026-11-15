@@ -58,7 +58,7 @@ Wiktionary.
 ## Support
 
 Edgeleaf is free: no trial, no ads, no account. If it earns a place at the edge of your screen,
-you can [buy me a coffee on Ko-fi](https://ko-fi.com/edgeleaf).
+you can [buy me a coffee on Ko-fi](https://ko-fi.com/edgyhd).
 
 ---
 
